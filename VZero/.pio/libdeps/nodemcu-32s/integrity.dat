@@ -1,7 +1,0 @@
-https://github.com/me-no-dev/ESPAsyncWebServer.git
-DallasTemperature@^3.7
-Adafruit Unified Sensor@^1.0
-https://github.com/me-no-dev/AsyncTCP.git
-DHT sensor library@^1.3
-OneWire@^2.3
-ArduinoJson@^5.1

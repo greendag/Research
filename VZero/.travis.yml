@@ -1,0 +1,74 @@
+sudo: false
+language: python
+python:
+  - "2.7"
+
+cache:
+  directories:
+    - "~/.platformio"
+
+env:
+  matrix:
+    - PLATFORMIO=1
+    - ARDUINO=1
+
+before_install:
+  # arduino prereqs
+  - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16
+  - export DISPLAY=:99.0
+  - sleep 3 # give xvfb some time to start
+
+install:
+  # install arduino ide
+  - |
+    if [ "$ARDUINO" ]; then 
+      wget http://downloads.arduino.cc/arduino-1.6.9-linux64.tar.xz
+      tar xf arduino-1.6.9-linux64.tar.xz
+      mv arduino-1.6.9 $HOME/arduino_ide
+      export PATH="$HOME/arduino_ide:$PATH"
+      which arduino
+    fi
+
+  # install arduino core
+  - |
+    if [ "$ARDUINO" ]; then 
+      cd $HOME/arduino_ide/hardware
+      mkdir esp8266com
+      cd esp8266com
+      git clone https://github.com/esp8266/Arduino.git esp8266
+      cd esp8266/tools
+      python get.py
+    fi
+
+  # install platformio
+#  - if [ "$PLATFORMIO" ]; then pip install -U platformio; fi
+# use pio 3.5 dev version
+  - if [ "$PLATFORMIO" ]; then pip install -U https://github.com/platformio/platformio-core/archive/develop.zip; fi
+
+  # install arduino libraries
+  - |
+    if [ "$ARDUINO" ]; then 
+      mkdir -p $HOME/Arduino/libraries
+      git clone https://github.com/bblanchon/ArduinoJson $HOME/Arduino/libraries/ArduinoJson
+      git clone https://github.com/adafruit/DHT-sensor-library.git $HOME/Arduino/libraries/DHT
+      git clone https://github.com/PaulStoffregen/OneWire.git $HOME/Arduino/libraries/OneWire
+      git clone https://github.com/milesburton/Arduino-Temperature-Control-Library $HOME/Arduino/libraries/DallasTemperature
+      git clone https://github.com/me-no-dev/ESPAsyncTCP $HOME/Arduino/libraries/ESPAsyncTCP
+      git clone https://github.com/me-no-dev/ESPAsyncWebServer $HOME/Arduino/libraries/ESPAsyncWebServer
+    fi
+
+script:
+  # arduino build
+  - |
+    if [ "$ARDUINO" ]; then 
+      cd $TRAVIS_BUILD_DIR
+      source misc/common.sh
+      ls -l
+
+      arduino --board esp8266com:esp8266:generic --save-prefs
+      arduino --get-pref sketchbook.path
+      build_sketch $PWD/src/vzero.ino esp8266
+    fi
+
+  # platformio build
+  - if [ "$PLATFORMIO" ]; then platformio ci --project-conf ./platformio.ini .; fi

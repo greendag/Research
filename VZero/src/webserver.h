@@ -6,7 +6,6 @@
 
 #define SERVER "websrv"
 
-
 // timestamp to trigger restart on
 extern uint32_t g_restartTime;
 // timestamp of last client access

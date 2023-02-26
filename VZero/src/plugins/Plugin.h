@@ -2,11 +2,10 @@
 #define PLUGIN_H
 
 #include <Arduino.h>
- #include <WiFi.h>
- #include <HTTPClient.h>
+#include <WiFi.h>
+#include <HTTPClient.h>
 #include <ArduinoJson.h>
 #include "../config.h"
-
 
 #define MAX_PLUGINS 5
 
@@ -15,16 +14,18 @@
 #define PLUGIN_UPLOADING 1
 
 #define UUID_LENGTH 36
-#define JSON_NULL static_cast<const char*>(NULL)
+#define JSON_NULL static_cast<const char *>(NULL)
 
-struct DeviceStruct {
-  char uuid[UUID_LENGTH+1];
+struct DeviceStruct
+{
+  char uuid[UUID_LENGTH + 1];
   float val;
 };
 
-class Plugin {
+class Plugin
+{
 public:
-  typedef std::function<void(Plugin*)> CallbackFunction;
+  typedef std::function<void(Plugin *)> CallbackFunction;
 
   Plugin(int8_t maxDevices, int8_t actualDevices);
   virtual ~Plugin();
@@ -44,23 +45,23 @@ public:
    * Get sensor index by sensor name (e.g. /analog/<a0>)
    * Reversed by getAddr
    */
-  virtual int8_t getSensorByAddr(const char* addr_c);
+  virtual int8_t getSensorByAddr(const char *addr_c);
 
   /**
    * Get senor name by sensor index
    * Reversed by getSensorByAddr
    */
-  virtual bool getAddr(char* addr_c, int8_t sensor);
+  virtual bool getAddr(char *addr_c, int8_t sensor);
 
   /**
    * Get middleware entity UUID for sensor
    */
-  virtual bool getUuid(char* uuid_c, int8_t sensor);
+  virtual bool getUuid(char *uuid_c, int8_t sensor);
 
   /**
    * Set middleware entity UUID for sensor
    */
-  virtual bool setUuid(const char* uuid_c, int8_t sensor);
+  virtual bool setUuid(const char *uuid_c, int8_t sensor);
 
   /**
    * Get sensor hash value
@@ -77,12 +78,12 @@ public:
   /**
    * Get plugin json inluding all sensors
    */
-  virtual void getPluginJson(JsonObject* json);
+  virtual void getPluginJson(JsonObject *json);
 
   /**
    * Get senor json
    */
-  virtual void getSensorJson(JsonObject* json, int8_t sensor);
+  virtual void getSensorJson(JsonObject *json, int8_t sensor);
 
   /**
    * Load plugin configuration
@@ -107,7 +108,7 @@ protected:
   uint8_t _status;
   int8_t _devs;
   uint16_t _size;
-  DeviceStruct* _devices;
+  DeviceStruct *_devices;
 
   virtual void upload();
   virtual bool isUploadSafe();
@@ -115,7 +116,7 @@ protected:
 
 private:
   static int8_t instances;
-  static Plugin* plugins[];
+  static Plugin *plugins[];
 };
 
 #endif

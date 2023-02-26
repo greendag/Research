@@ -15,10 +15,14 @@ void debug_plain(const char *msg);
 void debug_message(const char *module, const char *format, ...);
 
 #define DEBUG_PLAIN(msg) debug_plain(msg)
-#define DEBUG_MSG(module, format, ...) debug_message(module, format, ##__VA_ARGS__ )
+#define DEBUG_MSG(module, format, ...) debug_message(module, format, ##__VA_ARGS__)
 #else
 #define DEBUG_PLAIN(msg)
-#define DEBUG_MSG(...) if (ESP.getFreeHeap() < g_minFreeHeap) { g_minFreeHeap = ESP.getFreeHeap(); }
+#define DEBUG_MSG(...)                     \
+    if (ESP.getFreeHeap() < g_minFreeHeap) \
+    {                                      \
+        g_minFreeHeap = ESP.getFreeHeap(); \
+    }
 #endif
 
 #define PANIC(...) abort()
@@ -57,8 +61,8 @@ void debug_message(const char *module, const char *format, ...);
 #define HTTP_MIN_HEAP 4096
 
 // other defines
-#define CORE "core"		// module name
-#define BUILD "0.4.0"   // version
+#define CORE "core"   // module name
+#define BUILD "0.4.0" // version
 #define WIFI_CONNECT_TIMEOUT 10000
 #define OPTIMISTIC_YIELD_TIME 10000
 
@@ -69,8 +73,8 @@ void debug_message(const char *module, const char *format, ...);
  */
 
 // default WiFi connection information.
-extern const char* ap_default_ssid; // default SSID
-extern const char* ap_default_psk;  // default PSK
+extern const char *ap_default_ssid; // default SSID
+extern const char *ap_default_psk;  // default PSK
 
 // global vars
 extern String net_hostname;
@@ -80,7 +84,6 @@ extern uint32_t g_minFreeHeap;
 extern String g_ssid;
 extern String g_pass;
 extern String g_middleware;
-
 
 /*
  * Functions
@@ -101,4 +104,4 @@ bool loadConfig();
 bool saveConfig();
 
 int getResetReason(int core);
-const char* getResetReasonStr(int core);
+const char *getResetReasonStr(int core);

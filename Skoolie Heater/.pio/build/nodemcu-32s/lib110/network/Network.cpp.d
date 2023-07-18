@@ -1,4 +1,4 @@
-.pio/build/nodemcu-32s/lib110/network/Network.cpp.o: \
+.pio/build/nodemcu-32s/lib110/network/network.cpp.o: \
  lib/network/src/network.cpp \
  C:/Users/gary/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \
  C:/Users/gary/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp_arduino_version.h \
@@ -189,4 +189,17 @@
  C:/Users/gary/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiUdp.h \
  C:/Users/gary/.platformio/packages/framework-arduinoespressif32/cores/esp32/Udp.h \
  C:/Users/gary/.platformio/packages/framework-arduinoespressif32/cores/esp32/cbuf.h \
- lib/system/src/system.h lib/network/src/network.h
+ lib/system/src/system.h lib/network/src/network.h \
+ lib/accessPoint/src/accessPoint.h \
+ .pio/libdeps/nodemcu-32s/ESP\ Async\ WebServer/src/ESPAsyncWebServer.h \
+ C:/Users/gary/.platformio/packages/framework-arduinoespressif32/libraries/FS/src/FS.h \
+ .pio/libdeps/nodemcu-32s/ESP\ Async\ WebServer/src/StringArray.h \
+ .pio/libdeps/nodemcu-32s/AsyncTCP@src-7fb2940bccb78b8d2de6915ae328b7fc/src/AsyncTCP.h \
+ C:/Users/gary/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/lwip/lwip/src/include/lwip/pbuf.h \
+ C:/Users/gary/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/lwip/lwip/src/include/lwip/err.h \
+ .pio/libdeps/nodemcu-32s/ESP\ Async\ WebServer/src/WebResponseImpl.h \
+ .pio/libdeps/nodemcu-32s/ESP\ Async\ WebServer/src/WebHandlerImpl.h \
+ .pio/libdeps/nodemcu-32s/ESP\ Async\ WebServer/src/AsyncWebSocket.h \
+ .pio/libdeps/nodemcu-32s/ESP\ Async\ WebServer/src/AsyncWebSynchronization.h \
+ .pio/libdeps/nodemcu-32s/ESP\ Async\ WebServer/src/AsyncEventSource.h \
+ lib/utilities/src/utilities.h lib/stationMode/src/stationMode.h

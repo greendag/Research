@@ -3,81 +3,34 @@
 
 #include "system.h"
 #include "network.h"
+#include "accessPoint.h"
+#include "stationMode.h"
 
-void Network::Init(String ssid, String password)
+void Network::Init(const char *ssid, const char *password, AccessPoint &accessPoint, StationMode &stationMode)
 {
-    if (ssid != "")
+    if (strcmp(ssid, "") != 0)
     {
-        _sys.Log(_module, "Establishing a connection to %s.\n", ssid.c_str());
-        if (!ConnectToStation(ssid, password))
+        _sys.Log(_module, "Establishing a connection to %s.\n", ssid);
+        if (!stationMode.Connect(ssid, password))
         {
             _sys.Log(_module, "Unable to establish a connection to the network.\n");
-            _sys.Log(_module, "Enabling an Access point (%s).\n", GetAPSSID().c_str());
-            EnableApMode(GetAPSSID());
+            _sys.Log(_module, "Enabling an Access point (%s).\n", GetAPServiceSetId().c_str());
+            accessPoint.Start(GetAPServiceSetId());
         }
     }
     else
     {
-        _sys.Log(_module, "Enabling the Access point (%s).\n", GetAPSSID().c_str());
-        EnableApMode(GetAPSSID());
+        _sys.Log(_module, "Enabling the Access point (%s).\n", GetAPServiceSetId().c_str());
+        accessPoint.Start(GetAPServiceSetId());
     }
 }
 
-String Network::GetAPSSID()
+String Network::GetAPServiceSetId()
 {
     return "SKOOLIE_" + WiFi.macAddress();
 }
 
-const char *Network::GetModeDescription(wifi_mode_t mode)
+wifi_mode_t Network::GetMode()
 {
-    switch ((int)mode)
-    {
-        case 0:
-            return "Null";
-
-        case 1:
-            return "Station";
-
-        case 2:
-            return "Access Point";
-
-        case 3:
-            return "Station + Access Point";
-
-        case 4:
-            return "Max";
-
-        default:
-            return "Unknown";
-    }
-}
-
-const char *Network::GetConnectionStaus(wl_status_t status)
-{
-    switch ((int)status)
-    {
-    case 0:
-            return "Idle";
-
-    case 1:
-            return "No SSID available";
-
-    case 2:
-            return "Scan complete";
-
-    case 3:
-            return "Connected";
-
-    case 4:
-            return "Connection failed";
-
-    case 5:
-            return "Connection lost";
-
-    case 6:
-            return "Disconnected";
-
-    default:
-            return "Unknown";
-    }
+    return WiFi.getMode();
 }

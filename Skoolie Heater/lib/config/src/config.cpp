@@ -15,12 +15,12 @@ void Config::Init()
     LoadConfig();
 }
 
-String Config::GetWifiSsid()
+const char *Config::GetWifiSsid()
 {
-    return _wifiSsid;
+    return _wifiSsid.c_str();
 }
 
-String Config::GetWifiPassword()
+const char *Config::GetWifiPassword()
 {
-    return _wifiPassword;
+    return _wifiPassword.c_str();
 }

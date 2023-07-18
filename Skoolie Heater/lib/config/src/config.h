@@ -9,15 +9,16 @@
 class Config
 {
     public:
+        Config() {} 
         void Init();
-        String GetWifiSsid();
-        String GetWifiPassword();
+        const char *GetWifiSsid();
+        const char *GetWifiPassword();
 
     private:
+        System _sys;
         const char *_module = "config";
         String _wifiSsid = "";
         String _wifiPassword = "";
-        System _sys;
 
         void LoadConfig()
         {

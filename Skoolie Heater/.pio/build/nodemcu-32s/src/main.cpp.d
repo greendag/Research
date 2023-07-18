@@ -129,6 +129,9 @@
  C:/Users/gary/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/spi_flash/include/esp_spi_flash.h \
  C:/Users/gary/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/spi_flash/include/esp_spi_flash_counters.h \
  C:/Users/gary/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/esp_hw_support/include/soc/esp32/spiram.h \
+ src/fileExplorer.h \
+ C:/Users/gary/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.h \
+ C:/Users/gary/.platformio/packages/framework-arduinoespressif32/libraries/FS/src/FS.h \
  C:/Users/gary/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFi.h \
  C:/Users/gary/.platformio/packages/framework-arduinoespressif32/cores/esp32/Print.h \
  C:/Users/gary/.platformio/packages/framework-arduinoespressif32/cores/esp32/IPv6Address.h \
@@ -188,7 +191,21 @@
  C:/Users/gary/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiUdp.h \
  C:/Users/gary/.platformio/packages/framework-arduinoespressif32/cores/esp32/Udp.h \
  C:/Users/gary/.platformio/packages/framework-arduinoespressif32/cores/esp32/cbuf.h \
- lib/system/src/system.h lib/config/src/config.h \
+ C:/Users/gary/.platformio/packages/framework-arduinoespressif32/libraries/ESPmDNS/src/ESPmDNS.h \
+ C:/Users/gary/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/mdns/include/mdns.h \
+ .pio/libdeps/nodemcu-32s/AsyncTCP@src-7fb2940bccb78b8d2de6915ae328b7fc/src/AsyncTCP.h \
+ C:/Users/gary/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/lwip/lwip/src/include/lwip/pbuf.h \
+ C:/Users/gary/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/lwip/lwip/src/include/lwip/err.h \
+ .pio/libdeps/nodemcu-32s/ESP\ Async\ WebServer/src/ESPAsyncWebServer.h \
+ .pio/libdeps/nodemcu-32s/ESP\ Async\ WebServer/src/StringArray.h \
+ .pio/libdeps/nodemcu-32s/ESP\ Async\ WebServer/src/WebResponseImpl.h \
+ .pio/libdeps/nodemcu-32s/ESP\ Async\ WebServer/src/WebHandlerImpl.h \
+ .pio/libdeps/nodemcu-32s/ESP\ Async\ WebServer/src/AsyncWebSocket.h \
+ .pio/libdeps/nodemcu-32s/ESP\ Async\ WebServer/src/AsyncWebSynchronization.h \
+ .pio/libdeps/nodemcu-32s/ESP\ Async\ WebServer/src/AsyncEventSource.h \
+ C:/Users/gary/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/spi_flash/include/esp_spi_flash.h \
+ C:/Users/gary/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/bt/include/esp32/include/esp_bt.h \
+ src/app.h lib/system/src/system.h lib/config/src/config.h \
  .pio/libdeps/nodemcu-32s/ArduinoJson/src/ArduinoJson.h \
  .pio/libdeps/nodemcu-32s/ArduinoJson/src/ArduinoJson.hpp \
  .pio/libdeps/nodemcu-32s/ArduinoJson/src/ArduinoJson/version.hpp \
@@ -269,6 +286,5 @@
  .pio/libdeps/nodemcu-32s/ArduinoJson/src/ArduinoJson/Polyfills/parseFloat.hpp \
  .pio/libdeps/nodemcu-32s/ArduinoJson/src/ArduinoJson/Polyfills/parseInteger.hpp \
  .pio/libdeps/nodemcu-32s/ArduinoJson/src/ArduinoJson/Serialization/JsonSerializerImpl.hpp \
- C:/Users/gary/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.h \
- C:/Users/gary/.platformio/packages/framework-arduinoespressif32/libraries/FS/src/FS.h \
- lib/network/src/network.h
+ lib/accessPoint/src/accessPoint.h lib/utilities/src/utilities.h \
+ lib/stationMode/src/stationMode.h lib/network/src/network.h

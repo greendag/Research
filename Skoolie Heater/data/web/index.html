@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skoolie Heater</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-light bg-primary text-white">
+    <div class="mx-2">
+      Skoolie Heater
+    </div>
+  </nav>
+
+  <br />
+
+  <div class="container">
+    <div class="col-sm-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1 text-center">
+      <p>Congratulations - you've successfully started your device!</p>
+      <p>
+        This device is not able to connect to any WiFi network and is
+        currently running as an Access Point. Please configure WiFi credentials
+        below and restart the device.
+      </p>
+      <p>
+        After restarting the device will connect to the specified WiFi network
+        and should be accessible under this address:
+        <a href="#" class="address">(address updating)</a>.
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-light pt-3 pb-5 ">
+    <div class="col-sm-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
+  <div class="container">
+        <form action="/settings" method="POST">
+          <div class="text-center">
+            <h4>WiFi Configuration</h4>
+          </div>
+          <div class="text-right">
+            <div class="form-group">
+              <label>SSID:</label>
+              <input type="text" class="form-control" placeholder="Enter the network SSID" id="ssid">
+            </div>
+            <br />
+            <div class="form-group">
+              <label>Select SSID</label>
+              <select class="form-control">
+                <option value="UncleSlappy">Uncle Slappy</option>
+                <option value="Greendale">Greendale</option>
+                <option value="Starlink">Starlink</option>
+              </select>
+            </div>
+            <br />
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control" placeholder="Enter the wifi password" id="password">
+            </div>
+          </div>
+          <br />
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

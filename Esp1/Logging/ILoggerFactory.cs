@@ -1,0 +1,19 @@
+﻿using System;
+
+namespace Logging
+{
+    /// <summary>
+    /// Represents a type used to configure the logging system and create instances of <see cref="ILogger" /> from
+    /// the registered <see cref="ILogger" />s.
+    /// </summary>
+    public interface ILoggerFactory : IDisposable
+    {
+        /// <summary>
+        /// Creates a new <see cref="ILogger" /> instance.
+        /// </summary>
+        /// <param name="categoryName">The category name for messages produced by the logger.</param>
+        /// <param name="loggerType">The type of logger returned by the factory.</param>
+        /// <returns>The <see cref="ILogger" />.</returns>
+        ILogger CreateLogger(string categoryName, LoggerType loggerType);
+    }
+}
